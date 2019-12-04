@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>FaceMasker</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_13">
@@ -112,6 +112,12 @@
               </item>
               <item row="0" column="2">
                <widget class="QPushButton" name="extract_input_select_button">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="text">
                  <string>Select</string>
                 </property>
@@ -136,14 +142,14 @@
               <item row="1" column="1">
                <widget class="QLineEdit" name="extract_output_text">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>250</width>
+                  <width>0</width>
                   <height>0</height>
                  </size>
                 </property>
@@ -236,6 +242,12 @@
               </item>
               <item row="0" column="1" colspan="3">
                <widget class="QLineEdit" name="process_input_text">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="text">
                  <string/>
                 </property>
@@ -384,7 +396,7 @@
     </widget>
     <addaction name="menuLanguage"/>
    </widget>
-   <widget class="QMenu" name="menuHekp">
+   <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>Help</string>
     </property>
@@ -392,7 +404,7 @@
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuOptions"/>
-   <addaction name="menuHekp"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionExit">
@@ -401,11 +413,20 @@
    </property>
   </action>
   <action name="actionEnglish">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>English</string>
    </property>
   </action>
   <action name="actionJapanese">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Japanese</string>
    </property>

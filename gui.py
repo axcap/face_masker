@@ -187,13 +187,28 @@ def process_helper(hwd):
     hwd.win.masker.start()
 
 
+def set_menu_langugage_english(hwd):
+    print("Englando")
+    hwd.actionJapanese.setChecked(False)
+
+def set_menu_langugage_japanese(hwd):
+    print("Moshi moshi")
+    hwd.actionEnglish.setChecked(False)
+
+def about():
+    print("about")
+
+def exit():
+    print("Exit")
+    sys.exit(app.exec_())
+
 def set_up_actions(hwd):
     #hwd.extract_input_text.setText('/Users/axcap/Downloads/input.mp4')
     #hwd.extract_output_text.setText('/Users/axcap/Downloads/output')
     #hwd.process_input_text.setText('/Users/axcap/Downloads/output')
 
     ########
-    hwd.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "FaceMasker", None, -1))
+    hwd.win.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "FaceMasker", None, -1))
     hwd.extract_button.setFocus()
     hwd.process_hog_radioButton.setChecked(True)
     hwd.extract_progressbar.setValue(0)
@@ -214,12 +229,12 @@ def set_up_actions(hwd):
     hwd.extract_button.clicked.connect(lambda: extract_helper(hwd))
     hwd.process_button.clicked.connect(lambda: process_helper(hwd))
 
-    '''
-    sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-    sizePolicy.setHorizontalStretch(0)
-    sizePolicy.setVerticalStretch(30)
-    sizePolicy.setHeightForWidth(hwd.preview_placeholder.sizePolicy().hasHeightForWidth())
-    '''
+    # Set menubar actions
+    hwd.menubar.setNativeMenuBar(False);
+    hwd.actionExit.triggered.connect(exit)
+    hwd.actionEnglish.triggered.connect(lambda: set_menu_langugage_english(hwd))
+    hwd.actionJapanese.triggered.connect(lambda: set_menu_langugage_japanese(hwd))
+    hwd.actionAbout.triggered.connect(about)
 
 
 class MyDialog(QtWidgets.QMainWindow):
@@ -231,13 +246,11 @@ class MyDialog(QtWidgets.QMainWindow):
         super(MyDialog, self).closeEvent(evnt)
 
 
-
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = MyDialog()
-    MainWindow.hello = 'foo'
-    MainWindow.setUnifiedTitleAndToolBarOnMac(True)
+    #MainWindow.setUnifiedTitleAndToolBarOnMac(True)
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
 

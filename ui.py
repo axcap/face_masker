@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'v3.ui',
 # licensing of 'v3.ui' applies.
 #
-# Created: Sat Nov 16 10:50:07 2019
+# Created: Wed Dec  4 14:22:51 2019
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -68,6 +68,11 @@ class Ui_MainWindow(object):
         self.extract_input_label.setObjectName("extract_input_label")
         self.gridLayout_10.addWidget(self.extract_input_label, 0, 0, 1, 1)
         self.extract_input_select_button = QtWidgets.QPushButton(self.layoutWidget_5)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.extract_input_select_button.sizePolicy().hasHeightForWidth())
+        self.extract_input_select_button.setSizePolicy(sizePolicy)
         self.extract_input_select_button.setObjectName("extract_input_select_button")
         self.gridLayout_10.addWidget(self.extract_input_select_button, 0, 2, 1, 1)
         self.extract_output_label = QtWidgets.QLabel(self.layoutWidget_5)
@@ -80,12 +85,12 @@ class Ui_MainWindow(object):
         self.extract_output_label.setObjectName("extract_output_label")
         self.gridLayout_10.addWidget(self.extract_output_label, 1, 0, 1, 1)
         self.extract_output_text = QtWidgets.QLineEdit(self.layoutWidget_5)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.extract_output_text.sizePolicy().hasHeightForWidth())
         self.extract_output_text.setSizePolicy(sizePolicy)
-        self.extract_output_text.setMinimumSize(QtCore.QSize(250, 0))
+        self.extract_output_text.setMinimumSize(QtCore.QSize(0, 0))
         self.extract_output_text.setText("")
         self.extract_output_text.setObjectName("extract_output_text")
         self.gridLayout_10.addWidget(self.extract_output_text, 1, 1, 1, 1)
@@ -127,6 +132,11 @@ class Ui_MainWindow(object):
         self.process_input_label.setObjectName("process_input_label")
         self.gridLayout_12.addWidget(self.process_input_label, 0, 0, 1, 1)
         self.process_input_text = QtWidgets.QLineEdit(self.layoutWidget_6)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.process_input_text.sizePolicy().hasHeightForWidth())
+        self.process_input_text.setSizePolicy(sizePolicy)
         self.process_input_text.setText("")
         self.process_input_text.setObjectName("process_input_text")
         self.gridLayout_12.addWidget(self.process_input_text, 0, 1, 1, 3)
@@ -187,8 +197,8 @@ class Ui_MainWindow(object):
         self.menuOptions.setObjectName("menuOptions")
         self.menuLanguage = QtWidgets.QMenu(self.menuOptions)
         self.menuLanguage.setObjectName("menuLanguage")
-        self.menuHekp = QtWidgets.QMenu(self.menubar)
-        self.menuHekp.setObjectName("menuHekp")
+        self.menuHelp = QtWidgets.QMenu(self.menubar)
+        self.menuHelp.setObjectName("menuHelp")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -196,8 +206,11 @@ class Ui_MainWindow(object):
         self.actionExit = QtWidgets.QAction(MainWindow)
         self.actionExit.setObjectName("actionExit")
         self.actionEnglish = QtWidgets.QAction(MainWindow)
+        self.actionEnglish.setCheckable(True)
+        self.actionEnglish.setChecked(True)
         self.actionEnglish.setObjectName("actionEnglish")
         self.actionJapanese = QtWidgets.QAction(MainWindow)
+        self.actionJapanese.setCheckable(True)
         self.actionJapanese.setObjectName("actionJapanese")
         self.actionAbout = QtWidgets.QAction(MainWindow)
         self.actionAbout.setObjectName("actionAbout")
@@ -205,16 +218,16 @@ class Ui_MainWindow(object):
         self.menuLanguage.addAction(self.actionEnglish)
         self.menuLanguage.addAction(self.actionJapanese)
         self.menuOptions.addAction(self.menuLanguage.menuAction())
-        self.menuHekp.addAction(self.actionAbout)
+        self.menuHelp.addAction(self.actionAbout)
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuOptions.menuAction())
-        self.menubar.addAction(self.menuHekp.menuAction())
+        self.menubar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "MainWindow", None, -1))
+        MainWindow.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "FaceMasker", None, -1))
         self.groupBox_Extract.setTitle(QtWidgets.QApplication.translate("MainWindow", "Extract", None, -1))
         self.extract_output_select_button.setText(QtWidgets.QApplication.translate("MainWindow", "Select", None, -1))
         self.extract_input_label.setText(QtWidgets.QApplication.translate("MainWindow", "Input", None, -1))
@@ -234,18 +247,9 @@ class Ui_MainWindow(object):
         self.menuFile.setTitle(QtWidgets.QApplication.translate("MainWindow", "File", None, -1))
         self.menuOptions.setTitle(QtWidgets.QApplication.translate("MainWindow", "Options", None, -1))
         self.menuLanguage.setTitle(QtWidgets.QApplication.translate("MainWindow", "Language", None, -1))
-        self.menuHekp.setTitle(QtWidgets.QApplication.translate("MainWindow", "Help", None, -1))
+        self.menuHelp.setTitle(QtWidgets.QApplication.translate("MainWindow", "Help", None, -1))
         self.actionExit.setText(QtWidgets.QApplication.translate("MainWindow", "Exit", None, -1))
         self.actionEnglish.setText(QtWidgets.QApplication.translate("MainWindow", "English", None, -1))
         self.actionJapanese.setText(QtWidgets.QApplication.translate("MainWindow", "Japanese", None, -1))
         self.actionAbout.setText(QtWidgets.QApplication.translate("MainWindow", "About", None, -1))
 
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
